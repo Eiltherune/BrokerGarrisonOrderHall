@@ -1,0 +1,12 @@
+tag 2.0.8.1
+3e13a76d296e5fc3656fa855e32350104dc7e0d4
+Steffen Buehl <sb@sbuehl.com>
+2016-09-05 22:49:52 +0200
+
+2.0.8.1
+
+
+--------------------
+
+Steffen Buehl:
+	- Missing translation
