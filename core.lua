@@ -95,6 +95,9 @@ local DB_DEFAULTS = {
                 showRewards = true,
                 showRewardsAmount = false,
                 showRewardsXP = false,
+                showWoD = true,
+                showLegion = true,
+                showBfA = true,
             },
             building = {
                 hideBuildingWithoutShipments = false,
