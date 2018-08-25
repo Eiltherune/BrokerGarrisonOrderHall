@@ -96,6 +96,7 @@ local DB_DEFAULTS = {
                 showRewardsAmount = false,
                 showRewardsXP = false,
                 showWoD = true,
+                showShip = true,
                 showLegion = true,
                 showBfA = true,
             },
@@ -592,6 +593,7 @@ function Garrison:GetPlayerMissionCount(paramCharInfo, missionCount, missions)
             -- Check to make sure the mission's type is enabled
             if (
             ( missionData.followerTypeID == 1 and configDb.general.mission.showWoD ) or
+            ( missionData.followerTypeID == 2 and configDb.general.mission.showShip ) or
             ( missionData.followerTypeID == 4 and configDb.general.mission.showLegion ) or
             ( missionData.followerTypeID == 22 and configDb.general.mission.showBfA ) ) then
                 if missionData.start > 0 then

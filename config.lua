@@ -1207,10 +1207,20 @@ function Garrison:GetOptions()
 								set = function(_,v)
 									configDb.general.mission.showWoD = v
 								end,
-								--disabled = function() return not configDb.general.mission.showWoD end,
+							},
+							showShip = {
+								order = 96,
+								type = "toggle",
+								width = "full",
+								name = L["Show Shipyard Missions"],
+								desc = L["Show missions from the Warlords of Draenor Shipyard"],
+								get = function() return configDb.general.mission.showShip end,
+								set = function(_,v)
+									configDb.general.mission.showShip = v
+								end,
 							},
 							showLegion = {
-								order = 96,
+								order = 97,
 								type = "toggle",
 								width = "full",
 								name = L["Show Order Hall Missions"],
@@ -1219,10 +1229,9 @@ function Garrison:GetOptions()
 								set = function(_,v)
 									configDb.general.mission.showLegion = v
 								end,
-								--disabled = function() return not configDb.general.mission.showLegion end,
 							},
 							showBfA = {
-								order = 97,
+								order = 98,
 								type = "toggle",
 								width = "full",
 								name = L["Show War Campaign Missions"],
@@ -1231,7 +1240,6 @@ function Garrison:GetOptions()
 								set = function(_,v)
 									configDb.general.mission.showBfA = v
 								end,
-								--disabled = function() return not configDb.general.mission.showBfA end,
 							},
 							groupHeader = {
 								order = 100,

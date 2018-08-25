@@ -106,6 +106,7 @@ local function TooltipMission(tooltip, ExpandButton_OnMouseUp)
                         for missionID, missionData in sortedMissionTable do
                             if (
                                 ( missionData.followerTypeID == 1 and configDb.general.mission.showWoD ) or
+                                ( missionData.followerTypeID == 2 and configDb.general.mission.showShip ) or
                                 ( missionData.followerTypeID == 4 and configDb.general.mission.showLegion ) or
                                 ( missionData.followerTypeID == 22 and configDb.general.mission.showBfA ) ) then
                     
