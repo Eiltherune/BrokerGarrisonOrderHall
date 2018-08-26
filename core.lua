@@ -213,6 +213,10 @@ local DB_DEFAULTS = {
                 hideMinimapPulse = false,
                 compactToast = false,
                 notificationQueueEnabled = true,
+                WoD = true,
+                Shipyard = true,
+                Legion = true,
+                BfA = true,
             },
             building = {
                 enabled = true,
@@ -382,22 +386,28 @@ end
 
 
 local function toastMissionComplete(toast, text, missionData)
-    if configDb.notification.mission.toastPersistent then
-        toast:MakePersistent()
-    end
-    toast:SetTitle(L["Mission complete"])
-    toast:SetFormattedText(getColoredString(text, colors.green))
+    if (
+        ( missionData.followerTypeID == 1 and configDb.notification.mission.WoD ) or
+        ( missionData.followerTypeID == 2 and configDb.notification.mission.Shipyard ) or
+        ( missionData.followerTypeID == 4 and configDb.notification.mission.Legion ) or
+        ( missionData.followerTypeID == 22 and configDb.notification.mission.BfA ) ) then
+        if configDb.notification.mission.toastPersistent then
+            toast:MakePersistent()
+        end
+        toast:SetTitle(L["Mission complete"])
+        toast:SetFormattedText(getColoredString(text, colors.green))
 
-    if ToastVersion >= 8 and missionData.typeAtlas then
-        toast:SetIconAtlas(missionData.typeAtlas)
-    else
-        toast:SetIconTexture([[Interface\Icons\Inv_Garrison_Resource]])
-    end
+        if ToastVersion >= 8 and missionData.typeAtlas then
+            toast:SetIconAtlas(missionData.typeAtlas)
+        else
+            toast:SetIconTexture([[Interface\Icons\Inv_Garrison_Resource]])
+        end
 
-    if configDb.notification.mission.extendedToast then
-        toast:SetPrimaryCallback(_G.OKAY, toastCallback)
-        toast:SetSecondaryCallback(L["Dismiss"], toastCallback)
-        toast:SetPayload(missionData)
+        if configDb.notification.mission.extendedToast then
+            toast:SetPrimaryCallback(_G.OKAY, toastCallback)
+            toast:SetSecondaryCallback(L["Dismiss"], toastCallback)
+            toast:SetPayload(missionData)
+        end
     end
 end
 

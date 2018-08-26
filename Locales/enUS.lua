@@ -226,14 +226,20 @@ L["Ancient Mana (Max)"] = true
 L["Icon: Ancient Mana"] = true
 L["Oil (Formatted)"] = true
 
-L["Show Expansions"] = true
-L["Show Garrison Missions"] = true
+L["Expansions"] = true
+L["Garrison"] = true
+L["Shipyard"] = true
+L["Class Hall"] = true
+L["War Campaign"] = true
+
 L["Show missions from the Warlords of Draenor Garrison"] = true
-L["Show Shipyard Missions"] = true
 L["Show missions from the Warlords of Draenor Shipyard"] = true
-L["Show Order Hall Missions"] = true
 L["Show missions from the Legion Order Hall"] = true
-L["Show War Campaign Missions"] = true
 L["Show missions from the Battle for Azeroth War Campaign"] = true
+
+L["Show notifications for Garrison Missions"] = true
+L["Show notifications for Garrison Shipyard Missions"] = true
+L["Show notifications for Class Missions"] = true
+L["Show notifications for War Campaign Missions"] = true
 
 L["War Command"] = true

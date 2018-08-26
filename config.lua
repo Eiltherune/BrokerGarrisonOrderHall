@@ -521,14 +521,56 @@ function Garrison:GetOptions()
 								end,
 								disabled = function() return not configDb.notification.mission.enabled end,
 							},
-							toastHeader = {
+							expansionHeader = {
 								order = 300,
+								type = "header",
+								name = L["Expansions"],
+								cmdHidden = true,
+							},
+							notificationWoD = {
+								order = 305,
+								type = "toggle",
+								name = L["Garrison"],
+								desc = L["Show notifications for Warlords of Draenor Garrison Missions"],
+								get = function() return configDb.notification.mission.WoD end,
+								set = function(_,v) configDb.notification.mission.WoD = v
+								end,
+							},
+							notificationShip = {
+								order = 310,
+								type = "toggle",
+								name = L["Shipyard"],
+								desc = L["Show notifications for Warlords of Draenor Shipyard Missions"],
+								get = function() return configDb.notification.mission.Shipyard end,
+								set = function(_,v) configDb.notification.mission.Shipyard = v
+								end,
+							},
+							notificationClassHall = {
+								order = 315,
+								type = "toggle",
+								name = L["Class Hall"],
+								desc = L["Show notifications for Legion Class Hall Missions"],
+								get = function() return configDb.notification.mission.Legion end,
+								set = function(_,v) configDb.notification.mission.Legion = v
+								end,
+							},
+							notificationBfA = {
+								order = 320,
+								type = "toggle",
+								name = L["War Campaign"],
+								desc = L["Show notifications for Battle for Azeroth War Campaign Missions"],
+								get = function() return configDb.notification.mission.BfA end,
+								set = function(_,v) configDb.notification.mission.BfA = v
+								end,
+							},
+							toastHeader = {
+								order = 400,
 								type = "header",
 								name = L["Toast Notifications"],
 								cmdHidden = true,
 							},
 							toastToggle = {
-								order = 310,
+								order = 410,
 								type = "toggle",
 								width = "full",
 								name = L["Enable Toasts"],
@@ -539,7 +581,7 @@ function Garrison:GetOptions()
 								disabled = function() return not configDb.notification.mission.enabled end,
 							},
 							notificationQueueEnabled = {
-								order = 315,
+								order = 415,
 								type = "toggle",
 								width = "full",
 								name = L["Summary on login"],
@@ -551,7 +593,7 @@ function Garrison:GetOptions()
 														or not configDb.notification.mission.toastEnabled end,
 							},
 							toastPersistent = {
-								order = 320,
+								order = 420,
 								type = "toggle",
 								width = "full",
 								name = L["Persistent Toasts"],
@@ -563,7 +605,7 @@ function Garrison:GetOptions()
 														or not configDb.notification.mission.toastEnabled end,
 							},
 							notificationExtendedToast = {
-								order = 330,
+								order = 430,
 								type = "toggle",
 								width = "full",
 								name = L["Advanced Toast controls"],
@@ -577,7 +619,7 @@ function Garrison:GetOptions()
 														 end,
 							},
 							compactToast = {
-								order = 340,
+								order = 440,
 								type = "toggle",
 								width = "full",
 								name = L["Compact Toast"],
@@ -588,13 +630,13 @@ function Garrison:GetOptions()
 								end,
 							},							
 							miscHeader = {
-								order = 400,
+								order = 500,
 								type = "header",
 								name = L["Misc"],
 								cmdHidden = true,
 							},
 							hideBlizzardNotification = {
-								order = 410,
+								order = 510,
 								type = "toggle",
 								width = "full",
 								name = L["Hide Blizzard notifications"],
@@ -607,7 +649,7 @@ function Garrison:GetOptions()
 								disabled = function() return not configDb.notification.mission.enabled end,
 							},							
 							garrisonMinimapButtonAnimation = {
-								order = 420,
+								order = 520,
 								type = "toggle",
 								width = "full",
 								name = L["Hide Minimap-Button animation"],
@@ -617,7 +659,7 @@ function Garrison:GetOptions()
 								disabled = function() return configDb.general.hideGarrisonMinimapButton end,
 							},
 							playSound = {
-								order = 430,
+								order = 530,
 								type = "toggle",
 								name = L["Play Sound"],
 								desc = L["Play Sound"],
@@ -628,7 +670,7 @@ function Garrison:GetOptions()
 								disabled = function() return not configDb.notification.mission.enabled end,
 							},
 							playSoundOnMissionCompleteName = {
-								order = 440,
+								order = 540,
 								type = "select",
 								name = L["Sound"],
 								desc = L["Sound"],
@@ -1095,14 +1137,60 @@ function Garrison:GetOptions()
 						name = L["Mission"],
 						cmdHidden = false,
 						args = {
-							miscHeader = {
+							showExpansions = {
 								order = 10,
+								type = "header",
+								name = L["Expansions"],
+								cmdHidden = true,
+							},
+							showWoD = {
+								order = 11,
+								type = "toggle",
+								name = L["Garrison"],
+								desc = L["Show missions from the Warlords of Draenor Garrison"],
+								get = function() return configDb.general.mission.showWoD end,
+								set = function(_,v)
+									configDb.general.mission.showWoD = v
+								end,
+							},
+							showShip = {
+								order = 12,
+								type = "toggle",
+								name = L["Shipyard"],
+								desc = L["Show missions from the Warlords of Draenor Shipyard"],
+								get = function() return configDb.general.mission.showShip end,
+								set = function(_,v)
+									configDb.general.mission.showShip = v
+								end,
+							},
+							showLegion = {
+								order = 13,
+								type = "toggle",
+								name = L["Order Hall"],
+								desc = L["Show missions from the Legion Order Halls"],
+								get = function() return configDb.general.mission.showLegion end,
+								set = function(_,v)
+									configDb.general.mission.showLegion = v
+								end,
+							},
+							showBfA = {
+								order = 14,
+								type = "toggle",
+								name = L["War Campaign"],
+								desc = L["Show missions from the Battle for Azeroth War Campaign"],
+								get = function() return configDb.general.mission.showBfA end,
+								set = function(_,v)
+									configDb.general.mission.showBfA = v
+								end,
+							},
+							miscHeader = {
+								order = 100,
 								type = "header",
 								name = L["Misc"],
 								cmdHidden = true,
 							},
 							hideCharactersWithoutMissions = {
-								order = 50,
+								order = 150,
 								type = "toggle",
 								width = "full",
 								name = L["Hide characters without missions"],
@@ -1113,7 +1201,7 @@ function Garrison:GetOptions()
 								end,						
 							},	
 							showOnlyCurrentRealm = {
-								order = 60,
+								order = 160,
 								type = "toggle",
 								width = "full",
 								name = L["Show only current realm"],
@@ -1124,7 +1212,7 @@ function Garrison:GetOptions()
 								end,						
 							},
 							collapseOtherCharsOnLogin = {
-								order = 70,
+								order = 170,
 								type = "toggle",
 								width = "full",
 								name = L["Collapse all other characters on login"],
@@ -1135,7 +1223,7 @@ function Garrison:GetOptions()
 								end,						
 							},
 							compactTooltip = {
-								order = 80,
+								order = 180,
 								type = "toggle",
 								width = "full",
 								name = L["Compact Tooltip"],
@@ -1146,7 +1234,7 @@ function Garrison:GetOptions()
 								end,
 							},
 							showFollowers = {
-								order = 90,
+								order = 190,
 								type = "toggle",
 								width = "full",
 								name = L["Show followers for each mission"],
@@ -1157,7 +1245,7 @@ function Garrison:GetOptions()
 								end,								
 							},			
 							showRewards = {
-								order = 91,
+								order = 191,
 								type = "toggle",
 								width = "full",
 								name = L["Show rewards for each mission"],
@@ -1168,7 +1256,7 @@ function Garrison:GetOptions()
 								end,
 							},
 							showRewardXP = {
-								order = 92,
+								order = 192,
 								type = "toggle",
 								width = "full",
 								name = L["Show follower XP rewards"],
@@ -1180,7 +1268,7 @@ function Garrison:GetOptions()
 								disabled = function() return not configDb.general.mission.showRewards end,
 							},	
 							showRewardsAmount = {
-								order = 93,
+								order = 193,
 								type = "toggle",
 								width = "full",
 								name = L["Show reward amount"],
@@ -1192,63 +1280,13 @@ function Garrison:GetOptions()
 								disabled = function() return not configDb.general.mission.showRewards end,
 							},
 							groupHeader = {
-								order = 94,
-								type = "header",
-								name = L["Show Expansions"],
-								cmdHidden = true,
-							},
-							showWoD = {
-								order = 95,
-								type = "toggle",
-								width = "full",
-								name = L["Show Garrison Missions"],
-								desc = L["Show missions from the Warlords of Draenor Garrison"],
-								get = function() return configDb.general.mission.showWoD end,
-								set = function(_,v)
-									configDb.general.mission.showWoD = v
-								end,
-							},
-							showShip = {
-								order = 96,
-								type = "toggle",
-								width = "full",
-								name = L["Show Shipyard Missions"],
-								desc = L["Show missions from the Warlords of Draenor Shipyard"],
-								get = function() return configDb.general.mission.showShip end,
-								set = function(_,v)
-									configDb.general.mission.showShip = v
-								end,
-							},
-							showLegion = {
-								order = 97,
-								type = "toggle",
-								width = "full",
-								name = L["Show Order Hall Missions"],
-								desc = L["Show missions from the Legion Order Hall"],
-								get = function() return configDb.general.mission.showLegion end,
-								set = function(_,v)
-									configDb.general.mission.showLegion = v
-								end,
-							},
-							showBfA = {
-								order = 98,
-								type = "toggle",
-								width = "full",
-								name = L["Show War Campaign Missions"],
-								desc = L["Show missions from the Battle for Azeroth War Campaign"],
-								get = function() return configDb.general.mission.showBfA end,
-								set = function(_,v)
-									configDb.general.mission.showBfA = v
-								end,
-							},
-							groupHeader = {
-								order = 100,
+								order = 200,
 								type = "header",
 								name = L["Group by"],
 								cmdHidden = true,
 							},						
 							groupOptionValue = {
-								order = 200,
+								order = 300,
 								type = "select",
 								width = "double",
 								name = L["Group by"],
@@ -1260,7 +1298,7 @@ function Garrison:GetOptions()
 								end,
 							},
 							groupOptionAscending = {
-								order = 201,
+								order = 301,
 								type = "toggle",
 								name = L["Sort ascending"],
 								desc = L["Sort ascending"],
@@ -1271,13 +1309,13 @@ function Garrison:GetOptions()
 								disabled = function() return (configDb.tooltip.mission.group[1].value or "-") == "-" end,
 							},
 							groupOptionNewline = {
-								order = 202,
+								order = 302,
 								type = "description",
 								name = "",
 								width = "full",
 							},
 							sortHeader = {
-								order = 300,
+								order = 400,
 								type = "header",
 								name = L["Sort by"],
 								cmdHidden = true,
