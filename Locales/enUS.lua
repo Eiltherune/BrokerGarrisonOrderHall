@@ -237,9 +237,9 @@ L["Show missions from the Warlords of Draenor Shipyard"] = true
 L["Show missions from the Legion Order Hall"] = true
 L["Show missions from the Battle for Azeroth War Campaign"] = true
 
-L["Show notifications for Garrison Missions"] = true
-L["Show notifications for Garrison Shipyard Missions"] = true
-L["Show notifications for Class Missions"] = true
-L["Show notifications for War Campaign Missions"] = true
+L["Show notifications for Warlords of Draenor Garrison Missions"] = true
+L["Show notifications for Warlords of Draenor Shipyard Missions"] = true
+L["Show notifications for Legion Class Hall Missions"] = true
+L["Show notifications for Battle for Azeroth War Campaign Missions"] = true
 
 L["War Command"] = true
