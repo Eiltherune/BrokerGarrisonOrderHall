@@ -234,7 +234,7 @@ L["War Campaign"] = true
 
 L["Show missions from the Warlords of Draenor Garrison"] = true
 L["Show missions from the Warlords of Draenor Shipyard"] = true
-L["Show missions from the Legion Order Hall"] = true
+L["Show missions from the Legion Order Halls"] = true
 L["Show missions from the Battle for Azeroth War Campaign"] = true
 
 L["Show notifications for Warlords of Draenor Garrison Missions"] = true
