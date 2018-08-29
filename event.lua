@@ -1054,6 +1054,7 @@ function Garrison:CheckAddonLoaded(event, addon)
         -- Addon Loaded: Garrison UI - Hook AlertFrame
         debugPrint("Event: Blizzard_GarrisonUI loaded")
         Garrison:OnDependencyLoaded()
+        globalDb.data[charInfo.realmName][charInfo.playerName].missions = {}
         self:UnregisterEvent("ADDON_LOADED")
     end
 end
